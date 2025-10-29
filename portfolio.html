@@ -1,0 +1,455 @@
+<!--
+Video Editor Portfolio - Single HTML file
+Instructions:
+- Open this file in a browser to preview.
+- Replace VIDEO_SRC and THUMBNAIL_SRC placeholders with your actual video and image files.
+- The contact form is non-functional (no backend). You can integrate an endpoint or use Formspree/Netlify Forms.
+- Sections: Hero, About, Showreel, Services, Testimonials, Contact.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Video Editor Portfolio — Your Name</title>
+  <meta name="description" content="Creative video editor portfolio — showreel, services, and contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0f1724;
+      --card: rgba(255,255,255,0.04);
+      --glass: rgba(255,255,255,0.06);
+      --accent1:  #ffffff; /* coral */
+      --accent2:  #ffffff; /* blue */
+      --accent3:  #e6ebe8; /* mint */
+      --muted: #9aa4b2;
+      --glass-border: rgba(255,255,255,0.08);
+      --radius: 14px;
+      color-scheme: dark;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%);
+      color:#000408;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:40px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:1200px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:20px;
+      padding:28px;
+      box-shadow: 0 8px 40px rgba(2,6,23,0.7);
+      border: 1px solid rgba(255,255,255,0.03);
+      backdrop-filter: blur(8px) saturate(120%);
+    }
+
+    header{
+      display:flex;
+      gap:20px;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:20px;
+    }
+
+    .brand{
+      display:flex;
+      gap:16px;
+      align-items:center;
+    }
+    .logo{
+      width:64px;height:64px;border-radius:40px;
+      background:linear-gradient(135deg,var(--accent1),var(--accent2));
+      display:grid;place-items:center;font-weight:800;color:white;font-size:20px;box-shadow:0 6px 18px rgba(107,139,255,0.12);
+      
+    }
+    .name{font-weight:700;font-size:20px}
+    .tag{color:rgb(65, 62, 62);;font-size:13px;margin-top:2px}
+
+    nav{display:flex;gap:12px;align-items:center}
+    .nav-btn{background:transparent;border:1px solid transparent;padding:8px 14px;border-radius:10px;color:rgb(65, 62, 62);cursor:pointer;font-weight:600}
+    .nav-btn:hover{color:var(--accent2);transform:translateY(-2px)}
+
+    .hero{
+      display:grid;grid-template-columns: 1fr 420px;gap:28px;align-items:stretch;margin-bottom:28px;
+    }
+
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);padding:26px;border:1px solid var(--glass-border);
+      display:flex;flex-direction:column;justify-content:center;gap:18px;
+    }
+
+    h1{font-size:34px;margin:0;line-height:1.03}
+    p.lead{color:rgb(65, 62, 62);;margin:0}
+
+    .cta-row{display:flex;gap:12px;align-items:center}
+    .btn{padding:12px 18px;border-radius:12px;font-weight:700;border:none;cursor:pointer}
+    .btn-primary{background:linear-gradient(90deg,var(--accent2),var(--accent1));color:#021025;box-shadow:0 8px 30px rgba(107,139,255,0.14)}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:rgb(65, 62, 62);}
+
+    .stats{display:flex;gap:16px;margin-top:6px}
+    .stat{background:var(--card);border-radius:12px;padding:12px 14px;min-width:120px}
+    .stat b{display:block;font-size:18px}
+    .stat span{color:rgb(65, 62, 62);;font-size:13px}
+
+    /* Right column showreel card */
+    .showreel{
+      border-radius:16px;padding:16px;border:1px solid var(--glass-border);background:linear-gradient(180deg, rgba(255,255,255,0.022), rgba(255,255,255,0.01));
+      display:flex;flex-direction:column;gap:12px;align-items:stretch;height:100%;
+    }
+    .showreel .poster{border-radius:12px;overflow:hidden;position:relative;height:260px}
+    .poster video{width:100%;height:100%;object-fit:cover;display:block}
+    .poster .play-pill{position:absolute;inset:0;display:grid;place-items:center}
+    .pill{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg,var(--accent1),var(--accent2));box-shadow:0 10px 30px rgba(0,0,0,0.35);cursor:pointer}
+
+    /* Sections */
+    section{margin-bottom:26px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid var(--glass-border)}
+
+    .services{display:flex;gap:12px;flex-wrap:wrap}
+    .svc{flex:1 1 180px}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .thumb{position:relative;border-radius:10px;overflow:hidden;cursor:pointer}
+    .thumb img, .thumb video{width:100%;height:160px;object-fit:cover;display:block}
+    .thumb .meta{position:absolute;left:8px;bottom:8px;background:rgba(2,6,23,0.6);padding:6px 8px;border-radius:8px;font-weight:700}
+
+    /* Testimonials */
+    .testi{display:flex;gap:10px;align-items:center}
+    .avatar{width:56px;height:56px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent3),var(--accent2));font-weight:700}
+
+    footer{display:flex;justify-content:space-between;align-items:center;padding-top:8px;border-top:1px dashed rgba(255,255,255,0.03);color:rgb(65, 62, 62);;font-size:13px}
+
+    /* Modal */
+    .modal{position:fixed;inset:0;display:none;place-items:center;background:linear-gradient(180deg,rgba(2,6,23,0.6),rgba(2,6,23,0.85));z-index:40;padding:28px}
+    .modal.open{display:grid}
+    .modal-content{width:min(1100px,96%);background:rgba(3,9,18,0.6);border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,0.04)}
+    .modal video{width:100%;height:540px;object-fit:contain}
+
+    /* Responsiveness */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr;}
+      .showreel{order:-1}
+      .grid-3{grid-template-columns:repeat(2,1fr)}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:640px){
+      body{padding:18px}
+      .grid-3{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr}
+      header{flex-direction:column;align-items:flex-start;gap:12px}
+    }
+
+    /* small fancy touches */
+    .glow{position:relative}
+    .glow::after{content:"";position:absolute;inset:-40px;background:radial-gradient(closest-side, rgba(107,139,255,0.06), transparent);z-index:-1}
+
+    #lg{
+      border-radius: 40px;
+      right: 50%;
+    }
+    .btn.btn-primary {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn.btn-primary:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">
+        <img id="lg" src="468747486_1235569584400592_6123982831934272263_n.jpg" width="70px" >
+        </div>
+        <div>
+          <div class="name">Music mania — Video Editor</div>
+          <div class="tag" style="color:rgb(65, 62, 62);">Cinematic edits • Color grading • Motion graphics</div>
+        </div>
+      </div>
+      <nav>
+        <button class="nav-btn" onclick="scrollToSection('showreel')">Showreel</button>
+        <button class="nav-btn" onclick="scrollToSection('services')">Services</button>
+        <button class="nav-btn" onclick="scrollToSection('contact')">Contact</button>
+        <a class="nav-btn" href="#" onclick="downloadResume()">Download CV</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="hero">
+        <div class="hero-card">
+          <div class="eyebrow" style="color:var(rgb(65, 62, 62));font-weight:700">Showreel</div>
+          <h1>Crafting cinematic stories from captured moments.</h1>
+          <p class="lead" style="color:rgb(65, 62, 62);">I turn raw footage into compelling narratives — ads, short films, music videos, and social content optimized for engagement and emotion.</p>
+
+          <div class="cta-row">
+            <button class="btn btn-primary" onclick="scrollToSection('showreel')">Watch showreel</button>
+            <button style="color:rgb(65, 62, 62);" class="btn btn-ghost" onclick="scrollToSection('contact')">Hire me</button>
+          </div>
+
+          <div class="stats">
+            <div class="stat" ><b>2+</b><span style="color:rgb(65, 62, 62);">Years experience</span></div>
+            <div class="stat"><b>50+</b><span style="color:rgb(65, 62, 62);">Projects</span></div>
+            
+          </div>
+
+          <div style="margin-top:12px;display:flex;gap:10px;align-items:center">
+            <div style="display:flex;gap:8px;align-items:center">
+              <div style="width:56px;height:56px;border-radius:10px;overflow:hidden"><img src="1746500322851.jpg" alt="profile" style="width:100%;height:100%;object-fit:cover"></div>
+              <div>
+                <div style="font-weight:700">Kanish Singh</div>
+                <div style="font-size:12px;color:rgb(65, 62, 62);">Freelance — Open for work</div>
+              </div>
+            </div>
+            <div style="margin-left:auto;color:rgb(65, 62, 62);;font-size:13px">Bhopal</div>
+          </div>
+        </div>
+
+        <aside class="showreel">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div style="font-weight:800">Latest Showreel</div>
+            <div style="color:rgb(65, 62, 62);;font-size:13px">here </div>
+          </div>
+
+          <div class="poster" aria-hidden="false">
+            <!-- Replace the source below with your showreel file. If you want a poster image, set poster="path/to/poster.jpg" on the video tag. -->
+            <video id="mainVideo" poster="" playsinline  loop preload="metadata">
+              <!-- Example placeholder, replace 'VIDEO_SRC.mp4' with your file path -->
+              <source src="Video-48.mp4" type="video/mp4">
+              <!-- If no video available, fallback to an image -->
+              Your browser does not support the video tag.
+            </video>
+
+            <div class="play-pill" onclick="toggleMainVideo()">
+              <div class="pill">▶</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <button class="btn btn-ghost" style="color:rgb(65, 62, 62);" onclick="openModalSample('Video-48.mp4')">Open in Lightbox</button>
+            <a class="btn" href="#contact" onclick="scrollToSection('contact')" style="background:transparent;border:1px solid rgba(255,255,255,0.06)">Get quote</a>
+          </div>
+
+        </aside>
+      </div>
+
+      <section id="showreel">
+        <h2 style="margin:0 0 12px 0">Showreel & Selected Work</h2>
+        <div class="gallery">
+          <!-- Thumbnails: replace sources with your clips or images. Thumbnails open a modal showing the video. -->
+
+          <div class="thumb" onclick="openModalSample('Video-954.mp4')">
+            <img src="WhatsApp Image 2025-10-29 at 19.41.20_3088280b.jpg" alt="project 1">
+            <div class="meta">Project 1</div>
+          </div>
+
+          <div class="thumb" onclick="openModalSample('Video-19.mp4')">
+            <img src="ctn3vX.jpeg" alt="project 2">
+            <div class="meta">Ad Campaign</div>
+          </div>
+
+          <div class="thumb" onclick="openModalSample('Video-311.mp4')">
+            <img src="Copy of Agile Infographics by Slidesgo.pptx.jpg" alt="project 3">
+            <div class="meta">Music Video</div>
+          </div>
+
+          <div class="thumb" onclick="openModalSample('Video-226.mp4')">
+            <img src="WhatsApp Image 2025-10-29 at 19.41.21_88503aff.jpg" alt="project 4">
+            <div class="meta">Short Film</div>
+          </div>
+
+          <div class="thumb" onclick="openModalSample('Video-635.mp4')">
+            <img src="WhatsApp Image 2025-10-29 at 19.41.21_6005ee0d.jpg" alt="project 5">
+            <div class="meta">Promo</div>
+          </div>
+
+          <div class="thumb" onclick="openModalSample('Video-293.mp4')">
+            <img src="horimiya-izumi-kyouko-looking-down-n4na8xtac1n5rz39.jpg" alt="project 6">
+            <div class="meta">Social Edits</div>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="services">
+        <h2 style="margin:0 0 12px 0">Services</h2>
+        <div class="services">
+          <div class="card svc">
+            <h3 style="margin:0 0 8px 0">Color Grading</h3>
+            <p class="lead" style="color:rgb(65, 62, 62);">Bring cinematic tones and mood to your footage using industry workflows (DaVinci Resolve / Premiere LUTs).</p>
+          </div>
+          <div class="card svc">
+            <h3 style="margin:0 0 8px 0">Short-form Content</h3>
+            <p class="lead" style="color:rgb(65, 62, 62);">Reels & Shorts optimized for attention — fast cuts, punchy edits and captions for platforms.</p>
+          </div>
+          <div class="card svc">
+            <h3 style="margin:0 0 8px 0">Ads & Brand Films</h3>
+            <p class="lead"style="color:rgb(65, 62, 62);">Story-driven promo films, timed for conversion and brand lift.</p>
+          </div>
+        </div>
+      </section>
+
+     
+
+      <section id="contact">
+        <h2 style="margin:0 0 12px 0">Contact</h2>
+        <div class="grid-3">
+          <div class="card">
+            <h3 style="margin-top:0">Book a call</h3>
+            <p class="lead" style="color:rgb(65, 62, 62);">Email me or share your brief — I usually respond within 24-48 hours.</p>
+            <p style="margin:6px 0 0 0"><strong>Email</strong><br>kanishlodhi41@gmail.com</p>
+            <p style="margin:4px 0 0 0"><strong>Phone</strong><br>+91 7748859197</p>
+          </div>
+
+          <div class="card">
+            <h3 style="margin-top:0">Pricing (indicative)</h3>
+            <ul style="margin:6px 0 0 18px;color:rgb(65, 62, 62);">
+              <li>Short-form edit (15–60s): ₹3,000 – ₹8,000</li>
+              <li>Music video / Short film: ₹15,000+</li>
+              <li>Color grade (per project): ₹5,000+</li>
+            </ul>
+            <div style="margin-top:10px"><small style="color:rgb(65, 62, 62);">Prices vary by scope — contact for a custom quote.</small></div>
+          </div>
+
+          <div class="card">
+            <h3 style="margin-top:0">Send brief</h3>
+            <form id="contactForm" onsubmit="handleContact(event)">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <input id="name" placeholder="Your name" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
+                <input id="email" placeholder="Email" type="email" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
+                <textarea id="message" placeholder="Project brief, timeline, budget" rows="4" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit"></textarea>
+                <div style="display:flex;gap:8px">
+                  <button class="btn btn-primary" type="submit">Send</button>
+                  <button type="button" class="btn" onclick="resetForm()" style="background:transparent;border:1px solid rgba(255,255,255,0.06)">Reset</button>
+                </div>
+              </div>
+            </form>
+            <div id="formMsg" style="color:rgb(65, 62, 62);;font-size:13px;margin-top:8px"></div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Your Name — Video Editor</div>
+      <div style="display:flex;gap:12px">
+        <a href="#" style="color:rgb(65, 62, 62);;text-decoration:none">Instagram</a>
+        <a href="#" style="color:rgb(65, 62, 62);;text-decoration:none">Vimeo</a>
+        <a href="#" style="color:rgb(65, 62, 62);;text-decoration:none">LinkedIn</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modal for playing selected video -->
+  <div id="modal" class="modal" role="dialog" aria-hidden="true" onclick="closeModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button style="float:right;background:transparent;border:none;color:rgb(65, 62, 62);;font-size:18px;padding:6px;cursor:pointer" onclick="closeModal()">✕</button>
+      <video id="modalVideo" controls playsinline preload="metadata">
+        <source src="" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+
+  <script>
+    // Small interactive JS for the portfolio
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const mainVideo = document.getElementById('mainVideo');
+    function toggleMainVideo(){
+      if(!mainVideo) return;
+      if(mainVideo.paused){
+        mainVideo.play();
+        document.querySelector('.pill').textContent = '▌▌';
+      } else {
+        mainVideo.pause();
+        document.querySelector('.pill').textContent = '▶';
+      }
+    }
+
+    function openModalSample(src){
+      const modal = document.getElementById('modal');
+      const modalVideo = document.getElementById('modalVideo');
+      modalVideo.pause();
+      modalVideo.querySelector('source').src = src; // replace with real path
+      modalVideo.load();
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+      // try autoplay when opened (muted) — useful for quick previews
+      modalVideo.muted = false;
+      modalVideo.play().catch(()=>{});
+    }
+    function closeModal(e){
+      const modal = document.getElementById('modal');
+      const modalVideo = document.getElementById('modalVideo');
+      modalVideo.pause();
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden','true');
+    }
+
+    function scrollToSection(id){
+      const el = document.getElementById(id);
+      if(!el) return;
+      el.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+
+    function handleContact(e){
+      e.preventDefault();
+      // This demo doesn't send emails. Replace with your backend or service (Formspree, Zapier, Netlify Forms)
+      const name = document.getElementById('name').value || '—';
+      const email = document.getElementById('email').value || '—';
+      const msg = document.getElementById('message').value || '—';
+      document.getElementById('formMsg').textContent = `Thanks ${name}! I received your brief. (Demo — no backend)`;
+      // subtle UX: clear
+      setTimeout(()=>{resetForm()},2000);
+    }
+
+    function resetForm(){
+      document.getElementById('contactForm').reset();
+      document.getElementById('formMsg').textContent = '';
+    }
+
+    function downloadResume(){
+      // In a real setup, set href to your resume file. This demo triggers a fake file download.
+      const blob = new Blob(["Resume - Your Name\nReplace with your real resume file or link."],{type:'text/plain'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'YourName_Resume.txt';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown',(e)=>{
+      if(e.key === 'Escape') closeModal();
+      if(e.key === ' ') { // space toggles main video when focused on body
+        e.preventDefault();
+        toggleMainVideo();
+      }
+    });
+
+  </script>
+</body>
+</html>
