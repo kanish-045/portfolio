@@ -1,11 +1,4 @@
-<!--
-Video Editor Portfolio - Single HTML file
-Instructions:
-- Open this file in a browser to preview.
-- Replace VIDEO_SRC and THUMBNAIL_SRC placeholders with your actual video and image files.
-- The contact form is non-functional (no backend). You can integrate an endpoint or use Formspree/Netlify Forms.
-- Sections: Hero, About, Showreel, Services, Testimonials, Contact.
--->
+
 
 <!doctype html>
 <html lang="en">
@@ -22,9 +15,9 @@ Instructions:
       --bg: #0f1724;
       --card: rgba(255,255,255,0.04);
       --glass: rgba(255,255,255,0.06);
-      --accent1:  #ffffff; /* coral */
-      --accent2:  #ffffff; /* blue */
-      --accent3:  #e6ebe8; /* mint */
+      --accent1:  #ffffff; 
+      --accent2:  #ffffff;
+      --accent3:  #e6ebe8;
       --muted: #9aa4b2;
       --glass-border: rgba(255,255,255,0.08);
       --radius: 14px;
@@ -99,7 +92,8 @@ Instructions:
     .cta-row{display:flex;gap:12px;align-items:center}
     .btn{padding:12px 18px;border-radius:12px;font-weight:700;border:none;cursor:pointer}
     .btn-primary{background:linear-gradient(90deg,var(--accent2),var(--accent1));color:#021025;box-shadow:0 8px 30px rgba(107,139,255,0.14)}
-    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:rgb(65, 62, 62);}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0
+                                                            .06);color:rgb(65, 62, 62);}
 
     .stats{display:flex;gap:16px;margin-top:6px}
     .stat{background:var(--card);border-radius:12px;padding:12px 14px;min-width:120px}
@@ -107,7 +101,7 @@ Instructions:
     .stat span{color:var(--muted);font-size:13px}
    
 
-    /* Right column showreel card */
+  
     .showreel{
       border-radius:16px;padding:16px;border:1px solid var(--glass-border);background:linear-gradient(180deg, rgba(255,255,255,0.022), rgba(255,255,255,0.01));
       display:flex;flex-direction:column;gap:12px;align-items:stretch;height:100%;
@@ -125,25 +119,25 @@ Instructions:
     .services{display:flex;gap:12px;flex-wrap:wrap}
     .svc{flex:1 1 180px}
 
-    /* Gallery */
+   
     .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
     .thumb{position:relative;border-radius:10px;overflow:hidden;cursor:pointer}
     .thumb img, .thumb video{width:100%;height:160px;object-fit:cover;display:block}
     .thumb .meta{position:absolute;left:8px;bottom:8px;background:rgba(2,6,23,0.6);padding:6px 8px;border-radius:8px;font-weight:700}
 
-    /* Testimonials */
+
     .testi{display:flex;gap:10px;align-items:center}
     .avatar{width:56px;height:56px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent3),var(--accent2));font-weight:700}
 
     footer{display:flex;justify-content:space-between;align-items:center;padding-top:8px;border-top:1px dashed rgba(255,255,255,0.03);color:rgb(65, 62, 62);;font-size:13px}
 
-    /* Modal */
+
     .modal{position:fixed;inset:0;display:none;place-items:center;background:linear-gradient(180deg,rgba(2,6,23,0.6),rgba(2,6,23,0.85));z-index:40;padding:28px}
     .modal.open{display:grid}
     .modal-content{width:min(1100px,96%);background:rgba(3,9,18,0.6);border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,0.04)}
     .modal video{width:100%;height:540px;object-fit:contain}
 
-    /* Responsiveness */
+
     @media (max-width:1000px){
       .hero{grid-template-columns:1fr;}
       .showreel{order:-1}
@@ -157,7 +151,7 @@ Instructions:
       header{flex-direction:column;align-items:flex-start;gap:12px}
     }
 
-    /* small fancy touches */
+
     .glow{position:relative}
     .glow::after{content:"";position:absolute;inset:-40px;background:radial-gradient(closest-side, rgba(107,139,255,0.06), transparent);z-index:-1}
 
@@ -236,11 +230,11 @@ Instructions:
           </div>
 
           <div class="poster" aria-hidden="false">
-            <!-- Replace the source below with your showreel file. If you want a poster image, set poster="path/to/poster.jpg" on the video tag. -->
+         
             <video id="mainVideo" poster="" playsinline  loop preload="metadata">
-              <!-- Example placeholder, replace 'VIDEO_SRC.mp4' with your file path -->
+             
               <source src="Video-48.mp4" type="video/mp4">
-              <!-- If no video available, fallback to an image -->
+           
               Your browser does not support the video tag.
             </video>
 
@@ -260,7 +254,7 @@ Instructions:
       <section id="showreel">
         <h2 style="margin:0 0 12px 0">Showreel & Selected Work</h2>
         <div class="gallery">
-          <!-- Thumbnails: replace sources with your clips or images. Thumbnails open a modal showing the video. -->
+         
 
           <div class="thumb" onclick="openModalSample('Video-954.mp4')">
             <img src="WhatsApp Image 2025-10-29 at 19.41.20_3088280b.jpg" alt="project 1">
@@ -365,7 +359,7 @@ Instructions:
     </footer>
   </div>
 
-  <!-- Modal for playing selected video -->
+ 
   <div id="modal" class="modal" role="dialog" aria-hidden="true" onclick="closeModal(event)">
     <div class="modal-content" onclick="event.stopPropagation()">
       <button style="float:right;background:transparent;border:none;color:rgb(65, 62, 62);;font-size:18px;padding:6px;cursor:pointer" onclick="closeModal()">✕</button>
@@ -377,7 +371,7 @@ Instructions:
   </div>
 
   <script>
-    // Small interactive JS for the portfolio
+    
     document.getElementById('year').textContent = new Date().getFullYear();
 
     const mainVideo = document.getElementById('mainVideo');
@@ -396,11 +390,11 @@ Instructions:
       const modal = document.getElementById('modal');
       const modalVideo = document.getElementById('modalVideo');
       modalVideo.pause();
-      modalVideo.querySelector('source').src = src; // replace with real path
+      modalVideo.querySelector('source').src = src; 
       modalVideo.load();
       modal.classList.add('open');
       modal.setAttribute('aria-hidden','false');
-      // try autoplay when opened (muted) — useful for quick previews
+   
       modalVideo.muted = false;
       modalVideo.play().catch(()=>{});
     }
@@ -420,12 +414,12 @@ Instructions:
 
     function handleContact(e){
       e.preventDefault();
-      // This demo doesn't send emails. Replace with your backend or service (Formspree, Zapier, Netlify Forms)
+   
       const name = document.getElementById('name').value || '—';
       const email = document.getElementById('email').value || '—';
       const msg = document.getElementById('message').value || '—';
       document.getElementById('formMsg').textContent = `Thanks ${name}! I received your brief. (Demo — no backend)`;
-      // subtle UX: clear
+      
       setTimeout(()=>{resetForm()},2000);
     }
 
@@ -435,7 +429,7 @@ Instructions:
     }
 
     function downloadResume(){
-      // In a real setup, set href to your resume file. This demo triggers a fake file download.
+     
       const blob = new Blob(["Resume - Your Name\nReplace with your real resume file or link."],{type:'text/plain'});
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
@@ -444,10 +438,9 @@ Instructions:
       URL.revokeObjectURL(a.href);
     }
 
-    // Keyboard shortcuts
     document.addEventListener('keydown',(e)=>{
       if(e.key === 'Escape') closeModal();
-      if(e.key === ' ') { // space toggles main video when focused on body
+      if(e.key === ' ') {
         e.preventDefault();
         toggleMainVideo();
       }
