@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="developer">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kanish Singh – Freelance Video Editor | Music Mania</title>
+<meta name="description" content="Kanish Singh: freelance video editor behind Music Mania, and Java backend / full stack developer based in Bhopal, India.">
+<meta property="og:title" content="Kanish Singh – Creative & Developer Portfolio">
+<meta property="og:description" content="Cinematic video editing and backend engineering, in one portfolio.">
+<style>
+:root{--bg:#f3ecdd;--surf:#faf5ea;--line:#d9ccb0;--tx:#2b2418;--mut:#665a45;--a:#8f4f22;--b:#b8793a;--disp:'Times New Roman',Times,serif;--body:Calibri,Carlito,'Segoe UI',sans-serif;--mono:Calibri,Carlito,'Segoe UI',sans-serif;--r:14px;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html[data-mode=developer]{--bg:#f4f4f5;--surf:#ffffff;--line:#d9dbe0;--tx:#1b1d22;--mut:#5b616d;--a:#0b7a75;--b:#2563c9;--r:6px}
+html{scroll-padding-top:calc(76px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:italic 17px/1.6 var(--body);transition:background .5s,color .5s;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--a);outline-offset:3px}
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.bar{max-width:1180px;margin:auto;padding:12px 20px;display:flex;align-items:center;gap:20px}
+.brand{font:700 18px var(--disp);text-decoration:none;white-space:nowrap}
+nav{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+nav a{padding:6px 10px;border-radius:99px;text-decoration:none;color:var(--mut);font-size:14px}
+nav a:hover{color:var(--tx)}
+
+/* Neutral single-color toggle pill */
+.sw{display:flex;position:relative;border:1px solid var(--line);border-radius:99px;padding:3px;background:var(--surf)}
+.sw button{position:relative;z-index:1;background:none;border:0;color:var(--mut);font:500 13px var(--body);padding:8px 14px;border-radius:99px;cursor:pointer;min-height:40px;white-space:nowrap;transition:color .3s}
+.sw button[aria-pressed=true]{color:var(--bg)}
+.sw i{position:absolute;top:3px;bottom:3px;left:3px;width:calc(50% - 3px);border-radius:99px;background:var(--tx);transition:transform .4s cubic-bezier(.6,.1,.2,1),background .4s}
+html[data-mode=creative] .sw i{transform:translateX(100%)}
+
+.menu{display:none;background:none;border:1px solid var(--line);color:var(--tx);border-radius:8px;padding:8px 12px;font:inherit;min-height:40px}
+main{max-width:1180px;margin:auto;padding:0 20px;transition:opacity .25s}
+main.out{opacity:0}
+section{padding:84px 0 20px}
+h1,h2,h3{font-family:var(--disp);line-height:1.08;margin:0 0 .5em}
+h1{font-size:clamp(2.4rem,7.5vw,5.6rem);font-weight:800;letter-spacing:-.03em;max-width:15ch}
+h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;letter-spacing:-.02em}
+h3{font-size:1.25rem}
+p{max-width:64ch;color:var(--mut)}
+.hero{padding-top:70px;position:relative}
+.hero::before{content:"";position:absolute;inset:-40px -20px auto auto;width:60vw;max-width:640px;aspect-ratio:1;background:radial-gradient(closest-side,color-mix(in srgb,var(--b) 32%,transparent),transparent);filter:blur(30px);z-index:-1;animation:drift 14s ease-in-out infinite alternate}
+html[data-mode=developer] .hero::before{background:radial-gradient(closest-side,color-mix(in srgb,var(--a) 14%,transparent),transparent)}
+html[data-mode=developer] body{background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;background-attachment:fixed;background-color:var(--bg)}
+@keyframes drift{to{transform:translate(-6%,8%)}}
+
+/* === CREATIVE MODE HERO SPLIT + CIRCULAR FRAME (CENTERED & RAISED) === */
+.creative-hero-split{display:flex;align-items:flex-start;justify-content:space-between;gap:28px}
+.creative-hero-copy{flex:1 1 560px;min-width:0}
+.creative-avatar-wrap{flex:1 1 360px;display:grid;place-items:center;padding-top:16px;transform:translateX(-18px)}
+.creative-avatar{width:clamp(230px,26vw,330px);aspect-ratio:1;border-radius:50%;object-fit:cover;border:4px solid var(--surf);outline:2px solid var(--a);box-shadow:0 22px 44px -18px color-mix(in srgb,var(--a) 55%,transparent);background:var(--surf)}
+@media(max-width:860px){
+  .creative-hero-split{flex-direction:column;align-items:flex-start;gap:24px}
+  .creative-hero-copy{flex:none;width:100%}
+  .creative-avatar-wrap{flex:none;width:100%;padding-top:4px;transform:none;margin:0 auto}
+}
+
+/* === TOP-RIGHT FLOATING CUTOUT PORTRAIT IN DEVELOPER HERO === */
+.hero-split{position:relative;display:block}
+.hero-copy{position:relative;z-index:2;max-width:62%;padding-right:24px}
+.hero-portrait-wrap{position:absolute;top:-24px;right:0;width:42%;max-width:480px;display:flex;align-items:flex-start;justify-content:flex-end;z-index:1;pointer-events:none}
+.hero-portrait{width:100%;height:auto;max-height:540px;display:block;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 18px 28px rgba(15,23,42,.14));-webkit-mask-image:linear-gradient(to bottom,#000 72%,rgba(0,0,0,.65) 88%,transparent 100%);mask-image:linear-gradient(to bottom,#000 72%,rgba(0,0,0,.65) 88%,transparent 100%)}
+@media(max-width:1024px){
+  .hero-copy{max-width:60%;padding-right:16px}
+  .hero-portrait-wrap{top:-12px;width:42%;max-width:380px}
+  .hero-portrait{max-height:440px}
+}
+@media(max-width:860px){
+  .hero-split{display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+  .hero-copy{max-width:100%;width:100%;padding-right:0}
+  .hero-portrait-wrap{position:relative;top:auto;right:auto;width:min(82%,340px);max-width:340px;margin:8px auto 0;justify-content:center}
+  .hero-portrait{max-height:390px}
+}
+
+/* === DEVELOPER ABOUT SECTION + 4 LARGE FLOATING PNGS === */
+.about-split{display:flex;align-items:center;justify-content:space-between;gap:28px}
+.about-copy{flex:1 1 520px;min-width:0}
+.about-float{flex:0 1 480px;width:480px;height:390px;position:relative;pointer-events:none}
+.float-png{position:absolute;width:165px;height:165px;object-fit:contain;filter:drop-shadow(0 16px 26px rgba(15,23,42,.18));animation:float-icon 4.6s ease-in-out infinite alternate}
+.float-png.f1{top:0;left:4%;width:175px;height:175px;animation-delay:0s}
+.float-png.f2{top:14px;right:2%;width:160px;height:160px;animation-delay:-1.2s}
+.float-png.f3{bottom:6px;left:10%;width:165px;height:165px;animation-delay:-2.4s}
+.float-png.f4{bottom:0;right:6%;width:185px;height:185px;animation-delay:-3.5s}
+@keyframes float-icon{
+  0%{transform:translateY(0px) rotate(-2deg)}
+  100%{transform:translateY(-14px) rotate(2deg)}
+}
+@media(max-width:1024px){
+  .about-float{flex:0 1 380px;width:380px;height:320px}
+  .float-png.f1{width:140px;height:140px}
+  .float-png.f2{width:130px;height:130px}
+  .float-png.f3{width:135px;height:135px}
+  .float-png.f4{width:150px;height:150px}
+}
+@media(max-width:860px){
+  .about-split{flex-direction:column;align-items:flex-start;gap:20px}
+  .about-copy{flex:none;width:100%}
+  .about-float{flex:none;width:100%;height:auto;display:grid;grid-template-columns:repeat(2,minmax(120px,160px));justify-content:center;gap:18px;padding-top:8px}
+  .float-png{position:static;width:100%!important;height:140px!important}
+}
+
+.row{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-radius:99px;border:1px solid var(--line);text-decoration:none;font-weight:600;background:none;color:var(--tx);cursor:pointer;font-size:15px;transition:transform .2s,border-color .2s}
+html[data-mode=developer] .btn{border-radius:var(--r)}
+.btn:hover{transform:translateY(-2px);border-color:var(--a)}
+.btn.p{background:linear-gradient(120deg,var(--a),var(--b));border:0;color:#fff}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none;margin:14px 0}
+.chips li{border:1px solid var(--line);border-radius:99px;padding:4px 12px;font-size:13px;color:var(--mut);background:var(--surf)}
+html[data-mode=developer] .chips li{border-radius:4px;font-family:var(--mono);font-size:12px}
+.stats{display:flex;flex-wrap:wrap;gap:36px;margin-top:34px}
+.stats b{display:block;font:800 2.4rem var(--disp)}
+.stats span{color:var(--mut);font-size:14px}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr))}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:var(--r);padding:24px;transition:border-color .25s,transform .25s}
+.card:hover{border-color:var(--a)}
+.card ul{padding-left:18px;color:var(--mut);margin:.6em 0 0}
+
+/* === HORIZONTAL SEAMLESS MARQUEE FOR EDITOR MODE WORK === */
+.marquee{overflow:hidden;overflow-y:hidden;width:100%;margin-top:22px;padding:8px 0 14px;position:relative;-webkit-mask-image:linear-gradient(to right,transparent 0%,#000 4%,#000 96%,transparent 100%);mask-image:linear-gradient(to right,transparent 0%,#000 4%,#000 96%,transparent 100%)}
+.marquee-track{display:flex;flex-wrap:nowrap;gap:18px;width:max-content;will-change:transform;animation:marquee-scroll 28s linear infinite}
+.marquee:hover .marquee-track,.marquee:focus-within .marquee-track{animation-play-state:paused}
+@keyframes marquee-scroll{
+  0%{transform:translate3d(0,0,0)}
+  100%{transform:translate3d(calc(-50% - 9px),0,0)}
+}
+.reel{flex:0 0 auto;width:clamp(210px,22vw,260px);aspect-ratio:9/13;border-radius:8px;padding:20px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;text-align:left;font:inherit;color:inherit;background:linear-gradient(160deg,#f1e6cc,#e6d5b1 60%,#ddc79c);position:relative;isolation:isolate;overflow:hidden}
+.reel .cover{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .5s}
+.reel::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(25,19,12,.84) 0%,rgba(25,19,12,.22) 55%,rgba(25,19,12,.38) 100%);z-index:-1}
+.reel:hover .cover{transform:scale(1.05)}
+.reel .ph{font:800 4rem var(--disp);opacity:.45;line-height:1;color:#fff}
+.reel h3{color:#fff;margin-bottom:2px}
+.reel small{color:rgba(255,255,255,.82)}
+@media(max-width:600px){
+  .reel{width:195px}
+  .marquee-track{gap:14px;animation-duration:22s}
+  @keyframes marquee-scroll{
+    0%{transform:translate3d(0,0,0)}
+    100%{transform:translate3d(calc(-50% - 7px),0,0)}
+  }
+}
+
+.show{aspect-ratio:16/9;border:1px solid var(--line);border-radius:var(--r);position:relative;overflow:hidden;background:#000}
+.show iframe{width:100%;height:100%;border:0;display:block}
+.show-poster{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;cursor:pointer;display:grid;place-items:center;background:#000}
+.show-poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.show-poster::after{content:"";position:absolute;inset:0;background:rgba(20,15,10,.32);transition:background .3s}
+.show-poster:hover img{transform:scale(1.03)}
+.show-poster:hover::after{background:rgba(20,15,10,.18)}
+.play-badge{position:relative;z-index:1;display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:99px;background:linear-gradient(120deg,var(--a),var(--b));color:#fff;font:600 16px var(--body);box-shadow:0 14px 30px rgba(0,0,0,.45)}
+.tl{border-left:2px solid var(--line);padding-left:24px;margin-left:6px}
+.tl .card{margin-bottom:16px}
+.mono{font-family:var(--mono);font-size:13px;color:var(--a)}
+.code{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px;font:13px/1.7 var(--mono);color:var(--mut);margin-top:30px;max-width:520px;overflow-x:auto;position:relative;z-index:2}
+.code .k{color:var(--b)}.code .s{color:var(--a)}
+.shot{border:1px dashed var(--line);border-radius:var(--r);padding:26px;text-align:center;color:var(--mut);font-size:13px;margin:14px 0}
+details summary{cursor:pointer;color:var(--a);font-weight:600;margin-top:10px}
+.note{font-size:13px;color:var(--mut);max-width:56ch}
+dialog{border:1px solid var(--line);background:var(--surf);color:var(--tx);border-radius:var(--r);padding:16px;width:min(420px,94vw)}
+dialog::backdrop{background:rgba(0,0,0,.75)}
+dialog iframe{width:100%;height:min(70vh,560px);border:0;border-radius:8px;background:#000}
+footer{max-width:1180px;margin:90px auto 0;padding:30px 20px 50px;border-top:1px solid var(--line);color:var(--mut);font-size:14px;display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between}
+@media(max-width:860px){.menu{display:block;margin-left:auto}nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);padding:14px 20px;flex-direction:column;margin:0}nav.open{display:flex}nav a{padding:12px 8px;font-size:16px}.bar{flex-wrap:wrap;gap:10px}.sw{order:3;width:100%}.sw button{flex:1}}
+button,.btn,nav a,.sw button{font-style:italic}
+h1,h2,h3,.brand,.stats b{font-style:normal}
+.sw button{font-size:14px}
+.rv{opacity:0}.rv.in{opacity:1;animation:rise .7s cubic-bezier(.2,.7,.2,1) var(--d,0s) backwards}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}}
+.card{position:relative;overflow:hidden}
+.card::after{content:"";position:absolute;left:0;top:0;height:3px;width:100%;background:linear-gradient(90deg,var(--a),var(--b));transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.card:hover{transform:translateY(-6px);box-shadow:0 16px 34px -18px color-mix(in srgb,var(--a) 55%,transparent)}
+.card:hover::after{transform:scaleX(1)}
+.reel .ph{transition:transform .5s,opacity .5s}
+.reel:hover .ph{transform:scale(1.18) translateX(6px);opacity:.65}
+nav a{position:relative;transition:color .25s,background .25s}
+nav a:hover{background:color-mix(in srgb,var(--a) 12%,transparent)}
+.chips li{transition:transform .2s,border-color .2s,color .2s}
+.chips li:hover{transform:translateY(-3px);border-color:var(--a);color:var(--tx)}
+.btn{position:relative;overflow:hidden}
+.btn.p::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.35),transparent 70%);transform:translateX(-120%);transition:transform .6s}
+.btn.p:hover::before{transform:translateX(120%)}
+.btn:active{transform:scale(.97)}
+.brand{transition:letter-spacing .3s}.brand:hover{letter-spacing:.04em}
+.sw button:hover{color:var(--tx)}.sw button[aria-pressed=true]:hover{color:var(--bg)}
+.code::after{content:"";display:inline-block;width:8px;height:15px;background:var(--a);vertical-align:-2px;animation:blink 1.1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.show:hover{border-color:var(--a)}
+details[open] summary{margin-bottom:6px}details ul{animation:rise .4s}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.marquee{overflow-x:auto}.marquee-track{width:auto}}
+</style>
+</head>
+<body>
+<header><div class="bar">
+<a class="brand" href="#" id="brand">Kanish Singh</a>
+<button class="menu" id="menu" aria-expanded="false" aria-controls="nav">Menu</button>
+<nav id="nav" aria-label="Sections"></nav>
+<div class="sw" role="group" aria-label="Portfolio mode"><i></i>
+<button data-m="developer" aria-pressed="true">&lt;/&gt; Developer Mode</button>
+<button data-m="creative" aria-pressed="false">🎬 Creative Mode</button></div>
+</div></header>
+<main id="main"></main>
+<footer id="foot"></footer>
+<dialog id="dlg"><div id="dbody"></div><div class="row"><a class="btn p" id="dlink" target="_blank" rel="noopener">Watch on Instagram</a><button class="btn" id="dclose">Close</button></div></dialog>
+
+<script>
+/* ===== CONFIG: edit content here ===== */
+const C={email:"kanishlodhi41@gmail.com",phone:"+917748859197",phoneShow:"+91 7748859197",ig:"https://www.instagram.com/music_mania440/",loc:"Bhopal, Madhya Pradesh, India",
+ github:"https://github.com/kanish-045",linkedin:"https://www.linkedin.com/in/kanish-singh-ace45/",resume:"https://drive.google.com/file/d/1iq62iFr9jXY79CAiqBKHejTjIOwRsSfp/view?usp=drive_link"};
+const DEV_PHOTO="personal.png";
+const CREATIVE_PHOTO="music.jpg";
+const DEV_ICONS=["icon1.png","icon12png","icon3.png","icon4.png"];
+const REELS=[
+ {url:"https://www.instagram.com/reel/DPYxPnqAF_u/?evlk=NWNodGJ1NXhwMG1z",cover:"project1.jpg"},
+ {url:"https://www.instagram.com/reel/DLoUkXqSdHX/?lqvp=cG00MzBpZWRscjJw",cover:"project2.jpg"},
+ {url:"https://www.instagram.com/reel/DDKFrKdCS9l/?lqvp=N3F2cGppeWF3bG11",cover:"project3.jpg"},
+ {url:"https://www.instagram.com/reel/DPyBaJVgvZb/?dmpr=MWc2dnZvcDZma3Zvdw==",cover:"project4.jpg"},
+ {url:"https://www.instagram.com/reel/DO_DLEwkqU5/?evlk=b3c3cXdiNWFxdzBv",cover:"project5.jpg"}
+];
+const SHOWREEL="https://drive.google.com/file/d/1qJw5Fdt4BNsdzotjfWgyMwk8VTcFSJFg/preview";
+const SHOWREEL_COVER="cover.jpg";
+const PRICING=[["Short-form editing (15–60 sec)","₹300–₹800"],["Color grading","₹500+ per project"]];
+const NAV={creative:[["Home","home"],["About","about"],["Showreel","showreel"],["Work","work"],["Services","services"],["Skills","skills"],["Contact","contact"]],
+ developer:[["Home","home"],["About","about"],["Skills","skills"],["Projects","projects"],["Experience","experience"],["Education","education"],["Achievements","achievements"],["Contact","contact"]]};
+const DEV={
+ skills:[["Programming languages",["Java","Python","JavaScript"]],["Backend",["Spring Boot","REST APIs","JWT Authentication","Spring Data JPA"]],["Frontend",["React","HTML5","CSS3","JavaScript ES6+"]],["Databases",["MySQL"]],["AI/ML",["Deep Learning (LRCN)","RAG","FAISS","Applied ML"]],["Core CS",["Object-Oriented Programming","DBMS","Computer Networking"]]],
+ projects:[{t:"AI-Driven Surveillance and Intruder Alert System",d:"Feb 2026 – Jun 2026",s:"Built a real-time security prototype that combines camera and microphone input to detect intruders and suspicious activity.",pts:["Implemented an LRCN (Long-term Recurrent Convolutional Network) deep learning model.","Classified suspicious activity into 5 behavior classes, reaching ~74% detection accuracy on test video data.","Developed the backend application and REST APIs managing real-time data flow between the frontend and AI inference services."],tech:["LRCN","Deep Learning","REST APIs","Backend"],gh:"",demo:""},
+ {t:"Vulnerability Detection System: RAG Chatbot",d:"Sep 2025 – Dec 2025",s:"Developed the RAG-based chatbot module for a team-built, AI-powered vulnerability detection platform created for a hackathon.",pts:["Implemented a local RAG pipeline in Python.","Used FAISS for vector search.","Integrated Gemini to explain detected vulnerabilities in plain language, so users understand root causes without manual research."],tech:["Python","RAG","FAISS","Gemini"],gh:"",demo:""}],
+ ach:[["Hackathon finalist","Smart India Hackathon (SIH) and Kriyeta 4.0."],["State-level team captain, handball","Led the Oriental Institute of Science & Technology team at a state-level competition."],["Graphic designer, DEBUG Programming Club","Designed promotional graphics for ACM-affiliated events as an active club member."],["Internship certificate","Completed an internship at a government organisation."]]};
+
+/* ===== helpers ===== */
+const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const chips=a=>`<ul class="chips">${a.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`;
+const card=(t,l)=>`<div class="card"><h3>${t}</h3><ul>${l.map(x=>`<li>${x}</li>`).join("")}</ul></div>`;
+const waLink=`https://wa.me/${C.phone.replace(/\D/g,"")}`;
+const reelItem=(r,i,clone=false)=>`<button class="card reel" data-reel="${i}" ${clone?'aria-hidden="true" tabindex="-1"':`aria-label="Preview Project 0${i+1}"`}><img class="cover" src="${esc(r.cover)}" alt="Project 0${i+1} cover" onerror="this.style.display='none'"><span class="ph">0${i+1}</span><span><h3>Project 0${i+1}</h3><small>Instagram Reel · Preview</small></span></button>`;
+
+/* ===== views ===== */
+const VIEWS={
+creative:()=>`
+<section id="home" class="hero"><div class="creative-hero-split"><div class="creative-hero-copy"><p class="mono" style="color:var(--a)">Music Mania · Bhopal, India</p>
+<h1>Turning Moments Into Cinematic Stories.</h1>
+<p>I'm Kanish Singh, a freelance video editor behind Music Mania. I transform raw footage into cinematic, engaging visual experiences through storytelling, creative editing, color grading, and motion.</p>
+<div class="row"><a class="btn p" href="#work" data-go="work">View my work</a><a class="btn" href="#contact" data-go="contact">Let's work together</a></div>
+${chips(["Freelance Video Editor","Music Mania","Open for freelance projects"])}
+<div class="stats"><div><b>2+</b><span>years of experience</span></div><div><b>50+</b><span>projects completed</span></div></div></div>
+<div class="creative-avatar-wrap"><img class="creative-avatar" src="${esc(CREATIVE_PHOTO)}" alt="Music Mania – Kanish Singh"></div></div></section>
+<section id="about"><h2>Crafting cinematic stories from captured moments.</h2>
+<p>I specialize in turning raw footage into compelling, visually engaging stories. Every edit should communicate a story, set a mood, and leave a memorable impression, not just present footage.</p>
+${chips(["Cinematic editing","Color grading","Motion graphics","Advertisements","Short films","Music videos","Promotional content","Social media videos"])}
+<p>What I focus on: visual storytelling, emotional impact, music synchronization, audience engagement, and attention to detail.</p></section>
+<section id="showreel"><h2>Showreel</h2>
+<div class="show" id="showbox">
+<iframe title="Kanish Singh Showreel" src="${esc(SHOWREEL)}" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<button class="show-poster" id="playreel" type="button" aria-label="Play Showreel">
+<img src="${esc(SHOWREEL_COVER)}" alt="Showreel cover" onerror="this.style.display='none'">
+<span class="play-badge">▶ Watch Showreel</span>
+</button>
+</div></section>
+<section id="work"><h2>Selected work</h2><p>Five Instagram Reels. Hover to pause, or tap any card to preview it.</p>
+<div class="marquee" role="region" aria-label="Selected video projects">
+<div class="marquee-track">
+${REELS.map((r,i)=>reelItem(r,i,false)).join("")}
+${REELS.map((r,i)=>reelItem(r,i,true)).join("")}
+</div>
+</div></section>
+<section id="services"><h2>Services</h2><div class="grid">
+${card("Color grading",["Cinematic tones and color enhancement","Visual mood creation","LUT-based workflows","DaVinci Resolve and Premiere LUTs"])}
+${card("Short-form content",["Instagram Reels and YouTube Shorts","Fast cuts and transitions","Caption integration","Social-media-ready formatting"])}
+${card("Ads & brand films",["Promotional videos and brand films","Story-driven advertisements","Commercial video presentation","Audience engagement"])}</div></section>
+<section id="skills"><h2>Skills</h2><div class="grid">
+${card("Video editing",["Cinematic and story-driven editing","Music video and short film editing","Promotional and fast-paced editing"])}
+${card("Color grading",["Cinematic color grading and enhancement","LUT-based workflows","DaVinci Resolve workflows, Premiere LUTs"])}
+${card("Social media",["Instagram Reels, YouTube Shorts","Short-form editing","Caption integration and formatting"])}
+${card("Motion graphics",["Motion graphics as part of my services"])}</div></section>
+<section id="pricing"><h2>Pricing</h2><div class="grid">${PRICING.map(p=>`<div class="card"><h3>${p[0]}</h3><p style="font:700 1.6rem var(--disp);color:var(--tx);margin:0">${p[1]}</p></div>`).join("")}</div>
+<p>Indicative prices. Final cost depends on project requirements and scope. Reach out directly for a custom quotation.</p></section>
+<section id="contact"><h2>Contact</h2>
+<p>Open for freelance projects · ${esc(C.loc)} · Usually responds within 24–48 hours.</p>
+<div class="row">
+<a class="btn p" href="mailto:${C.email}">${C.email}</a>
+<a class="btn" href="${waLink}" target="_blank" rel="noopener">WhatsApp ${C.phoneShow}</a>
+<a class="btn" href="tel:${C.phone}">Call ${C.phoneShow}</a>
+<a class="btn" href="${C.ig}" target="_blank" rel="noopener">Instagram @music_mania440</a>
+</div></section>`,
+developer:()=>`
+<section id="home" class="hero"><div class="hero-split"><div class="hero-copy"><p class="mono">Bhopal, India · Open to opportunities</p>
+<h1>Building Scalable Backend Systems & Intelligent Applications.</h1>
+<p>I'm a Computer Science Engineering student with hands-on experience building backend and full-stack applications using Java, Spring Boot, Python, and React. I enjoy building REST APIs and intelligent applications that solve practical problems.</p>
+<div class="row"><a class="btn p" href="#projects" data-go="projects">Explore projects</a><a class="btn" id="resume" ${C.resume?`href="${esc(C.resume)}" target="_blank" rel="noopener"`:`href="#contact" data-go="contact"`}>Download resume</a><a class="btn" href="#contact" data-go="contact">Contact me</a></div>
+${C.resume?"":`<p class="note">The resume file is not hosted on this page yet, so this button leads to contact until a PDF link is set.</p>`}
+${chips(["Java Backend Developer","Full Stack Developer","Computer Science Engineering"])}
+<div class="code" aria-hidden="true"><span class="k">class</span> Kanish <span class="k">extends</span> Developer {<br>&nbsp;&nbsp;stack = [<span class="s">"Java"</span>, <span class="s">"Spring Boot"</span>, <span class="s">"Python"</span>, <span class="s">"React"</span>];<br>&nbsp;&nbsp;seeking = <span class="s">"Entry-level Java / Backend / Full Stack"</span>;<br>}</div></div>
+<div class="hero-portrait-wrap" aria-hidden="true"><img class="hero-portrait" src="${esc(DEV_PHOTO)}" alt="Kanish Singh" decoding="async" fetchpriority="high"></div></div></section>
+<section id="about"><div class="about-split"><div class="about-copy"><h2>About</h2>
+<p>B.Tech Computer Science student building backend and full-stack applications with Java, Spring Boot, Python, and React. I've developed REST APIs, a deep learning–based intruder detection prototype, and a RAG-based chatbot that explains security vulnerabilities. I completed a backend-focused internship at NTRO and I'm seeking entry-level Java Developer, Backend Developer, or Full Stack Developer roles.</p></div>
+<div class="about-float" aria-hidden="true">${DEV_ICONS.map((src,i)=>`<img class="float-png f${i+1}" src="${esc(src)}" alt="" loading="lazy" onerror="this.style.display='none'">`).join("")}</div></div></section>
+<section id="skills"><h2>Technical skills</h2><div class="grid">${DEV.skills.map(s=>`<div class="card"><h3>${s[0]}</h3>${chips(s[1])}</div>`).join("")}</div></section>
+<section id="projects"><h2>Projects</h2><div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))">${DEV.projects.map(p=>`<article class="card"><p class="mono" style="margin:0">${p.d}</p><h3>${p.t}</h3><p>${p.s}</p>${chips(p.tech)}<div class="shot">Screenshot placeholder</div>
+<details><summary>My contributions</summary><ul>${p.pts.map(x=>`<li>${x}</li>`).join("")}</ul></details>
+${p.gh||p.demo?`<div class="row">${p.gh?`<a class="btn" href="${p.gh}">GitHub</a>`:""}${p.demo?`<a class="btn" href="${p.demo}">Live demo</a>`:""}</div>`:""}</article>`).join("")}</div></section>
+<section id="experience"><h2>Experience</h2><div class="tl"><div class="card"><p class="mono" style="margin:0">Feb 2026 – May 2026</p><h3>Intern, National Technical Research Organisation (NTRO), Prime Minister's Office</h3>
+<ul><li>Contributed to backend development with Spring Boot as part of a 3-person team during a 3-month government internship.</li><li>Strengthened computer networking fundamentals.</li><li>Gained hands-on experience in project planning and technical documentation.</li></ul></div></div></section>
+<section id="education"><h2>Education</h2><div class="card"><h3>Oriental Institute of Science & Technology, Bhopal</h3><p style="margin:0">B.Tech, Computer Science Engineering · CGPA 7.86</p></div></section>
+<section id="achievements"><h2>Achievements & leadership</h2><div class="grid">${DEV.ach.map(a=>`<div class="card"><h3>${a[0]}</h3><p style="margin:0">${a[1]}</p></div>`).join("")}</div></section>
+<section id="contact"><h2>Contact</h2>
+<p>${esc(C.loc)} · Open to Java, Backend & Full Stack roles.</p>
+<div class="row">
+<a class="btn" href="mailto:${C.email}">${C.email}</a>
+<a class="btn" href="${waLink}" target="_blank" rel="noopener">WhatsApp ${C.phoneShow}</a>
+<a class="btn" href="tel:${C.phone}">Call ${C.phoneShow}</a>
+${C.linkedin?`<a class="btn" href="${C.linkedin}" target="_blank" rel="noopener">LinkedIn</a>`:""}
+${C.github?`<a class="btn" href="${C.github}" target="_blank" rel="noopener">GitHub</a>`:""}
+</div></section>`};
+const TITLES={creative:"Kanish Singh – Freelance Video Editor | Music Mania",developer:"Kanish Singh – Java Backend & Full Stack Developer"};
+
+/* ===== mode logic ===== */
+const io="IntersectionObserver" in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12}):null;
+function reveal(){document.querySelectorAll("h2,.card:not(.reel),.chips li,.stats>div,.hero h1,.code,.show,.tl,.hero-portrait,.creative-avatar").forEach((el,i)=>{el.classList.add("rv");el.style.setProperty("--d",(i%5)*70+"ms");io?io.observe(el):el.classList.add("in")})}
+let mode;
+function pick(){let m=null;try{m=new URLSearchParams(location.search).get("mode")}catch(e){}
+ if(!["creative","developer"].includes(m)){const h=location.hash.slice(1);m=["creative","developer"].includes(h)?h:null}
+ if(!m){try{m=localStorage.getItem("ks-mode")}catch(e){}}
+ return m=="creative"?"creative":"developer"}
+function render(m,animate){
+ const go=()=>{mode=m;document.documentElement.dataset.mode=m;document.title=TITLES[m];
+  $("#main").innerHTML=VIEWS[m]();
+  $("#nav").innerHTML=NAV[m].map(n=>`<a href="#${n[1]}" data-go="${n[1]}">${n[0]}</a>`).join("");
+  document.querySelectorAll(".sw button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.m==m));
+  $("#foot").innerHTML=`<div><b style="color:var(--tx)">Kanish Singh</b>${m=="creative"?" · Music Mania":""}<br>${esc(C.loc)} · © ${new Date().getFullYear()}</div><div><a href="mailto:${C.email}">${C.email}</a> · <a href="${waLink}" target="_blank" rel="noopener">${C.phoneShow}</a><br><a href="${C.ig}" target="_blank" rel="noopener">Instagram @music_mania440</a>${C.github?` · <a href="${C.github}" target="_blank" rel="noopener">GitHub</a>`:""}${C.linkedin?` · <a href="${C.linkedin}" target="_blank" rel="noopener">LinkedIn</a>`:""}</div>`;
+  $("#main").classList.remove("out");window.scrollTo(0,0);reveal()};
+ if(animate&&!matchMedia("(prefers-reduced-motion:reduce)").matches){$("#main").classList.add("out");setTimeout(go,250)}else go()}
+function setMode(m){if(m==mode)return;try{localStorage.setItem("ks-mode",m)}catch(e){}
+ try{history.replaceState(null,"","#"+m)}catch(e){location.hash=m}render(m,true)}
+document.querySelectorAll(".sw button").forEach(b=>b.onclick=()=>setMode(b.dataset.m));
+$("#menu").onclick=e=>{const o=$("#nav").classList.toggle("open");e.currentTarget.setAttribute("aria-expanded",o)};
+$("#brand").onclick=e=>{e.preventDefault();window.scrollTo({top:0,behavior:"smooth"})};
+
+/* ===== delegated clicks ===== */
+document.addEventListener("click",e=>{
+ const g=e.target.closest("[data-go]");
+ if(g){e.preventDefault();$("#nav").classList.remove("open");$("#menu").setAttribute("aria-expanded","false");const el=document.getElementById(g.dataset.go);el&&el.scrollIntoView({behavior:"smooth"})}
+ const p=e.target.closest("#playreel");
+ if(p){p.remove()}
+ const r=e.target.closest("[data-reel]");
+ if(r){const u=REELS[+r.dataset.reel].url,id=u.match(/reel\/([^/?]+)/)[1];
+  $("#dbody").innerHTML=`<iframe loading="lazy" title="Project 0${+r.dataset.reel+1}" src="https://www.instagram.com/reel/${id}/embed" allowfullscreen></iframe><p class="note">If the preview stays blank, your browser blocked the embed. Use the button below.</p>`;
+  $("#dlink").href=u;$("#dlg").showModal()}
+ if(e.target.id=="dclose"){$("#dlg").close();$("#dbody").innerHTML=""}});
+$("#dlg").addEventListener("close",()=>{$("#dbody").innerHTML=""});
+
+render(pick(),false);
+addEventListener("hashchange",()=>{const h=location.hash.slice(1);if(["creative","developer"].includes(h)&&h!=mode)setMode(h)});
+</script>
+</body>
+</html>
